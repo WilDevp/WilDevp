@@ -56,6 +56,10 @@ Custom ecommerce built from scratch — no templates, no per-sale commission, ow
 ### Latest post
 
 <!-- BLOG-POST:START -->
+<a href="https://www.wilmargarcia.dev/blog/wilmargarcia-md-harness-development">
+  <img src="https://pub-304e9b339d2f49a98d43e7a401eda245.r2.dev/blog/1783899372353-qw52596v2m.png" alt="wilmargarcia.md: How I Turned All My Experience Into a Harness for Building With AI" width="100%" />
+</a>
+
 📝 **[wilmargarcia.md: How I Turned All My Experience Into a Harness for Building With AI](https://www.wilmargarcia.dev/blog/wilmargarcia-md-harness-development)**
 <!-- BLOG-POST:END -->
 
