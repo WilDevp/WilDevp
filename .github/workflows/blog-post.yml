@@ -46,8 +46,10 @@ jobs:
           slug = unique[0]
           post_url = f"https://www.wilmargarcia.dev{slug}"
 
-          # Step 2: Fetch post page for clean title
+          # Step 2: Fetch post page for title, og:image thumbnail
           post_html = fetch(post_url)
+
+          # Clean title from <title> tag
           title_match = re.search(r'<title>([^<]+)', post_html)
           if title_match:
             title = html_module.unescape(title_match.group(1).strip())
@@ -56,6 +58,19 @@ jobs:
             h1 = re.search(r'<h1[^>]*>([^<]+)</h1>', post_html)
             title = html_module.unescape(h1.group(1).strip()) if h1 else "Latest Post"
 
+          # Thumbnail from og:image meta tag
+          og_patterns = [
+            r'<meta\s+property="og:image"\s+content="([^"]+)"',
+            r'<meta\s+content="([^"]+)"\s+property="og:image"',
+            r'<meta\s+name="twitter:image"\s+content="([^"]+)"',
+          ]
+          thumbnail = None
+          for pat in og_patterns:
+            m = re.search(pat, post_html)
+            if m:
+              thumbnail = html_module.unescape(m.group(1).strip())
+              break
+
           # Step 3: Get date from listing HTML near the slug
           pos = listing.find(f'href="{slug}"')
           window = re.sub(r'<[^>]+>', ' ', listing[max(0, pos - 800):pos + 800])
@@ -63,8 +78,17 @@ jobs:
           date_match = re.search(r'\d{1,2}\s+de\s+\w+\s+de\s+\d{4}', window)
           date = f" — {date_match.group(0)}" if date_match else ""
 
-          # Step 4: Build entry and update README
-          entry = f"📝 **[{title}]({post_url})**{date}"
+          # Step 4: Build entry with thumbnail card + title link
+          if thumbnail:
+            entry = (
+              f'<a href="{post_url}">\n'
+              f'  <img src="{thumbnail}" alt="{title}" width="100%" />\n'
+              f'</a>\n\n'
+              f'📝 **[{title}]({post_url})**{date}'
+            )
+          else:
+            entry = f"📝 **[{title}]({post_url})**{date}"
+
           new_block = f"<!-- BLOG-POST:START -->\n{entry}\n<!-- BLOG-POST:END -->"
 
           with open("README.md", "r", encoding="utf-8") as f:
