@@ -9,7 +9,7 @@
 ---
 
 Leading engineering teams at **Quind** — clean architecture, microservices, and scalable distributed systems.
-Also running **[WillDevp](https://www.willdevp.com)** — a software studio building custom ecommerce, web apps, and AI agents for Colombian businesses.
+Also running **[WillDevp](https://www.willdevp.com)** — a software studio crafting custom ecommerce, web apps, and AI agents for Colombian businesses.
 
 Technology still has a lot of unfinished business with the agricultural sector. Working on bridging that gap.
 
@@ -53,11 +53,19 @@ Custom ecommerce built from scratch — no templates, no per-sale commission, ow
 
 ---
 
+### Contributions
+
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=WilDevp&show_icons=true&theme=github_dark&hide_border=true&count_private=true&rank_icon=github&include_all_commits=true" height="165" />
-&nbsp;&nbsp;
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=WilDevp&layout=compact&theme=github_dark&hide_border=true&langs_count=6" height="165" />
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=WilDevp&bg_color=0d1117&color=58a6ff&line=1f6feb&point=58a6ff&area=true&area_color=1f6feb&hide_border=true&custom_title=Activity" width="100%" />
+
+<br>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/WilDevp/WilDevp/output/snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/WilDevp/WilDevp/output/snake.svg" />
+  <img alt="contribution snake" src="https://raw.githubusercontent.com/WilDevp/WilDevp/output/snake-dark.svg" width="100%" />
+</picture>
 
 </div>
 
