@@ -1,8 +1,8 @@
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:1a3a5c,100:58a6ff&height=200&section=header&text=Wilmar%20Garcia&fontSize=48&fontColor=ffffff&fontAlignY=38&desc=Tech%20Lead%20%40%20Quind%20%C2%B7%20Founder%20%40%20WillDevp&descSize=17&descAlignY=58&animation=fadeIn" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=venom&color=0:0d1117,50:0d3340,100:0891b2&height=220&section=header&text=Wilmar%20Garcia&fontSize=48&fontColor=ffffff&fontAlignY=38&desc=Tech%20Lead%20%40%20Quind%20%C2%B7%20Founder%20%40%20WillDevp&descSize=17&descAlignY=58&animation=fadeIn" width="100%" />
 
 <div align="center">
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=16&duration=2800&pause=1000&color=58A6FF&center=true&vCenter=true&width=640&lines=Tech+Lead+%40+Quind+%E2%80%94+Clean+Architecture+%26+Microservices;Founder+%40+WillDevp+%E2%80%94+Ecommerce+a+la+medida;Fintech+%E2%80%94+Neo+Banking+at+Tenpo;Healthcare+%E2%80%94+ChenMed+%7C+Open+Banking+%E2%80%94+Banco+de+Bogot%C3%A1;Technology+has+unfinished+business+with+agriculture+%F0%9F%8C%BE)](https://www.willdevp.com)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=16&duration=2800&pause=1000&color=22D3EE&center=true&vCenter=true&width=640&lines=Tech+Lead+%40+Quind+%E2%80%94+Clean+Architecture+%26+Microservices;Founder+%40+WillDevp+%E2%80%94+Ecommerce+a+la+medida;Fintech+%E2%80%94+Neo+Banking+at+Tenpo;Healthcare+%E2%80%94+ChenMed+%7C+Open+Banking+%E2%80%94+Banco+de+Bogot%C3%A1;Technology+has+unfinished+business+with+agriculture+%F0%9F%8C%BE)](https://www.willdevp.com)
 
 </div>
 
@@ -57,7 +57,7 @@ Custom ecommerce built from scratch — no templates, no per-sale commission, ow
 
 <div align="center">
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=WilDevp&bg_color=0d1117&color=58a6ff&line=1f6feb&point=58a6ff&area=true&area_color=1f6feb&hide_border=true&custom_title=Activity" width="100%" />
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=WilDevp&bg_color=0d1117&color=22d3ee&line=0891b2&point=22d3ee&area=true&area_color=0d3340&hide_border=true&custom_title=Activity" width="100%" />
 
 <br>
 
@@ -76,4 +76,4 @@ Custom ecommerce built from scratch — no templates, no per-sale commission, ow
   <a href="https://www.willdevp.com">willdevp.com</a>
 </p>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:58a6ff,50:1a3a5c,100:0d1117&height=120&section=footer" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=venom&color=0:0891b2,50:0d3340,100:0d1117&height=150&section=footer&reversal=true" width="100%" />
