@@ -56,7 +56,7 @@ Custom ecommerce built from scratch — no templates, no per-sale commission, ow
 ### Latest post
 
 <!-- BLOG-POST:START -->
-📝 **[wilmargarcia.md: Como Converti Toda Mi Experiencia en un Harness para Desarrollar con IA](https://www.wilmargarcia.dev/blog/wilmargarcia-md-harness-development)** — 12 de julio de 2026
+📝 **[wilmargarcia.md: How I Turned All My Experience Into a Harness for Building With AI](https://www.wilmargarcia.dev/blog/wilmargarcia-md-harness-development)**
 <!-- BLOG-POST:END -->
 
 ---
