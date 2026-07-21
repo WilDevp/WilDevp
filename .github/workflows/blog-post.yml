@@ -1,0 +1,96 @@
+name: Update Latest Blog Post
+
+on:
+  schedule:
+    - cron: "0 8 * * *"
+  workflow_dispatch:
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch latest post and update README
+        run: |
+          python3 << 'PYEOF'
+          import urllib.request
+          import re
+          import html as html_module
+          import sys
+
+          def fetch(url):
+            req = urllib.request.Request(
+              url,
+              headers={"User-Agent": "Mozilla/5.0 (compatible; WilDevp-profile-bot)"}
+            )
+            return urllib.request.urlopen(req, timeout=10).read().decode("utf-8")
+
+          # Step 1: Get latest slug from blog listing
+          listing = fetch("https://www.wilmargarcia.dev/blog")
+          slugs = re.findall(r'href="(/blog/[a-z0-9][^"]+)"', listing)
+          unique = []
+          seen = set()
+          for s in slugs:
+            if s not in seen and s not in ('/blog', '/blog/'):
+              seen.add(s)
+              unique.append(s)
+
+          if not unique:
+            print("No posts found — skipping")
+            sys.exit(0)
+
+          slug = unique[0]
+          post_url = f"https://www.wilmargarcia.dev{slug}"
+
+          # Step 2: Fetch post page for clean title
+          post_html = fetch(post_url)
+          title_match = re.search(r'<title>([^<]+)', post_html)
+          if title_match:
+            title = html_module.unescape(title_match.group(1).strip())
+            title = re.sub(r'\s*[\|–\-].*$', '', title).strip()
+          else:
+            h1 = re.search(r'<h1[^>]*>([^<]+)</h1>', post_html)
+            title = html_module.unescape(h1.group(1).strip()) if h1 else "Latest Post"
+
+          # Step 3: Get date from listing HTML near the slug
+          pos = listing.find(f'href="{slug}"')
+          window = re.sub(r'<[^>]+>', ' ', listing[max(0, pos - 800):pos + 800])
+          window = html_module.unescape(window)
+          date_match = re.search(r'\d{1,2}\s+de\s+\w+\s+de\s+\d{4}', window)
+          date = f" — {date_match.group(0)}" if date_match else ""
+
+          # Step 4: Build entry and update README
+          entry = f"📝 **[{title}]({post_url})**{date}"
+          new_block = f"<!-- BLOG-POST:START -->\n{entry}\n<!-- BLOG-POST:END -->"
+
+          with open("README.md", "r", encoding="utf-8") as f:
+            content = f.read()
+
+          updated = re.sub(
+            r"<!-- BLOG-POST:START -->.*?<!-- BLOG-POST:END -->",
+            new_block,
+            content,
+            flags=re.DOTALL,
+          )
+
+          if updated == content:
+            print("README already up to date")
+            sys.exit(0)
+
+          with open("README.md", "w", encoding="utf-8") as f:
+            f.write(updated)
+
+          print(f"Updated: {title}")
+          PYEOF
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git diff --staged --quiet || git commit -m "chore: update latest blog post"
+          git push
